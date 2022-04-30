@@ -12,7 +12,6 @@ pub struct Config {
 pub fn get_config() -> Config {
     let mut config_dir = dirs::home_dir().unwrap();
     config_dir.push(PathBuf::from(".o/config.json"));
-    print!("config file = {:?}", config_dir);
     let mut config_file = File::open(config_dir).unwrap();
     let mut data = String::new();
     config_file.read_to_string(&mut data).unwrap();

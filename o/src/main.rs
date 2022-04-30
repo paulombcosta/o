@@ -32,7 +32,6 @@ fn main() -> Result<(), Error> {
 fn get_match_command(argmatch: &ArgMatches, cmd: &Cmd) -> Option<String> {
     match argmatch.subcommand() {
         Some((name, sub_matches)) => {
-            println!("cmd name {:?}", cmd.name);
             if name != cmd.name {
                 return None;
             }
