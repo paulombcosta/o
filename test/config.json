@@ -1,0 +1,35 @@
+{
+  "cmds": [
+    {
+      "name": "reddit",
+      "value": "https://reddit.com"
+    },
+    {
+      "name": "github",
+      "children": [
+        {
+          "name": "druid",
+          "value": "https://github.com/linebender/druid"
+        },
+        {
+          "name": "rust",
+          "value": "https://github.com/rust-lang/rust"
+        }
+      ]
+    },
+    {
+      "name": "sample",
+      "value": "http://base.sample.com",
+      "children": [
+        {
+          "name": "nested1",
+          "value": "http://nested1.com"
+        },
+        {
+          "name": "nested2",
+          "value": "http://nested2.com"
+        }
+      ]
+    }
+  ]
+}

@@ -9,14 +9,18 @@ pub struct Config {
     pub cmds: Vec<Cmd>,
 }
 
-pub fn get_config() -> Config {
-    let mut config_dir = dirs::home_dir().unwrap();
-    config_dir.push(PathBuf::from(".o/config.json"));
-    let mut config_file = File::open(config_dir).unwrap();
+pub fn get_config(mut config_path: PathBuf) -> Config {
+    config_path.push(PathBuf::from("config.json"));
+    let mut config_file = File::open(config_path).unwrap();
     let mut data = String::new();
     config_file.read_to_string(&mut data).unwrap();
-    let config = serde_json::from_str(&data).unwrap();
-    return config;
+    serde_json::from_str(&data).unwrap()
+}
+
+pub fn get_default_config() -> Config {
+    let mut config_folder = dirs::home_dir().unwrap();
+    config_folder.push(PathBuf::from(".o"));
+    get_config(config_folder)
 }
 
 pub fn get_config_folder() -> PathBuf {
