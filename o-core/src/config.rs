@@ -18,11 +18,15 @@ pub fn get_config(mut config_path: PathBuf) -> Config {
 }
 
 pub fn get_default_config() -> Config {
-    let mut config_folder = dirs::home_dir().unwrap();
-    config_folder.push(PathBuf::from(".o"));
+    let mut config_folder = dirs::config_dir().unwrap();
+    config_folder.push(PathBuf::from("o"));
     get_config(config_folder)
 }
 
 pub fn get_config_folder() -> PathBuf {
-    dirs::home_dir().unwrap().join(".o")
+    dirs::config_dir().unwrap().join("o")
+}
+
+pub fn get_completions_folder() -> PathBuf {
+    dirs::home_dir().unwrap().join(".zsh/completions")
 }
